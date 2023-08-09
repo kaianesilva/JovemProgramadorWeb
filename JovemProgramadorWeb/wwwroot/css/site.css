@@ -14,5 +14,34 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: url("../img/aluno.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.credit {
+    background: rgba(0, 0, 0, 0.75);
+    font-size: 1.3em;
+    color: whitesmoke;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.credit a {
+    color:turquoise;
+    transition: 1s;
+}
+
+.credit a:hover {
+    color:white;
+    text-shadow: 0 0 8px white;
+}
+
+.table {
+    background: rgb(99, 75, 222,0.75);
+    font-size: 1.3em;
+    color: whitesmoke;
+    padding: 1em;
+    border-radius: 0.5em;
 }
