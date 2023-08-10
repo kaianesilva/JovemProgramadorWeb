@@ -1,4 +1,18 @@
-﻿<table class="table">
+﻿@if (ViewData["MsgErro"] != null)
+{
+  <div class="alert-danger">
+      @ViewData["MsgErro"]
+  </div>
+}
+
+@if (ViewData["MsgAcerto"] != null)
+{
+    <div class="alert-warning">
+        @ViewData["MsgAcerto"]
+    </div>
+}
+
+<table class="table">
     <div class="text-center">
         <h1 class="display-4">Alunos Registrados</h1>
     <thead>
