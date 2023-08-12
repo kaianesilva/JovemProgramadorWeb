@@ -1,4 +1,5 @@
-﻿using JovemProgramadorWeb.Models;
+﻿using JovemProgramadorWeb.Data.Repositorio.Interfaces;
+using JovemProgramadorWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -7,14 +8,17 @@ namespace JovemProgramadorWeb.Controllers
     public class AlunoController : Controller
     {
         private readonly IConfiguration _configuration;
-        public AlunoController(IConfiguration configuration)
+        private readonly IAlunoRepositorio _alunoRepositorio;
+        public AlunoController(IConfiguration configuration, IAlunoRepositorio alunoRepositorio)
         {
             _configuration = configuration;
+            _alunoRepositorio = alunoRepositorio;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var aluno = _alunoRepositorio.BuscarAlunos();
+            return View(aluno);
         }
 
         public IActionResult Criar()
