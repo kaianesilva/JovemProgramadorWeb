@@ -7,9 +7,12 @@
         <div class="modal-content">
             <div class="modal-body">
                 <p>Logradouro: @Html.DisplayFor(endereco => endereco.logradouro)</p>
+                <p>Complemento: @Html.DisplayFor(endereco => endereco.complemento)</p>
                 <p>Bairro: @Html.DisplayFor(endereco => endereco.bairro)</p>
+                <p>Localidade: @Html.DisplayFor(endereco => endereco.localidade)</p>
                 <p>UF: @Html.DisplayFor(endereco => endereco.uf)</p>
                 <p>DDD: @Html.DisplayFor(endereco => endereco.ddd)</p>
+                
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" type="button" asp-controller="Aluno" asp-action="Index">Fechar</a>

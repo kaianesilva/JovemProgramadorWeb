@@ -26,6 +26,23 @@ namespace JovemProgramadorWeb.Controllers
             return View();
         }
 
+        public IActionResult InserirAluno(Aluno aluno)
+        {
+            try 
+            {
+                _alunoRepositorio.InserirAluno(aluno);
+            }
+            catch (Exception e)
+            {
+                TempData["MsgErro"] = "Erro ao inserir aluno!";
+            }
+
+            TempData["MsgAcerto"] = "Aluno inserido com sucesso!";
+
+            return RedirectToAction("Index");
+        
+        }
+
         public async Task<IActionResult> BuscarEndereco(string cep)
         {
             Endereco endereco = new Endereco();
