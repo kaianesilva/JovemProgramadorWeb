@@ -8,6 +8,14 @@ namespace JovemProgramadorWeb.Data.Repositorio.Interfaces
 
         void InserirAluno(Aluno aluno);
 
+        void ExcluirAluno(Aluno aluno);
+
+        void Editar(Aluno aluno);
+
+        Aluno ListarPorId(int id);
+        Aluno Atualizar(Aluno aluno);
+
+        bool Apagar(int id);
 
 
     }

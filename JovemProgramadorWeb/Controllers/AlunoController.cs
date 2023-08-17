@@ -1,4 +1,5 @@
-﻿using JovemProgramadorWeb.Data.Repositorio.Interfaces;
+﻿using JovemProgramadorWeb.Data.Repositorio;
+using JovemProgramadorWeb.Data.Repositorio.Interfaces;
 using JovemProgramadorWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -26,6 +27,30 @@ namespace JovemProgramadorWeb.Controllers
             return View();
         }
 
+        public IActionResult Editar(int id)
+        {
+            Aluno aluno = _alunoRepositorio.ListarPorId(id);
+            return View(aluno);
+        }
+
+        public IActionResult Alterar(Aluno aluno)
+        {
+            _alunoRepositorio.Atualizar(aluno);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Apagar(int id)
+        {
+            _alunoRepositorio.Apagar(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult ApagarConfirmacao(int id)
+        {
+            Aluno aluno = _alunoRepositorio.ListarPorId(id);
+            return View(aluno);
+        }
+
         public IActionResult InserirAluno(Aluno aluno)
         {
             try 
@@ -41,6 +66,23 @@ namespace JovemProgramadorWeb.Controllers
 
             return RedirectToAction("Index");
         
+        }
+
+        public IActionResult ExcluirAluno(Aluno aluno)
+        {
+            try
+            {
+                _alunoRepositorio.ExcluirAluno(aluno);
+            }
+            catch (Exception e)
+            {
+                TempData["MsgErro"] = "Erro ao deletar aluno!";
+            }
+
+            TempData["MsgAcerto"] = "Aluno deletado com sucesso!";
+
+            return RedirectToAction("Index");
+
         }
 
         public async Task<IActionResult> BuscarEndereco(string cep)

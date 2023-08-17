@@ -54,7 +54,18 @@
 
                     <td>
                         <div class="d-grid gap-2 d-md-block">
-                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
+                            <a type="submit" class="btn btn-success" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.cep">Endereco</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-primary" role="button" asp-controller="Aluno" asp-action="Editar" asp-route-id="@aluno.id">Editar</a>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-danger" role="button" asp-controller="Aluno" asp-action="ApagarConfirmacao" asp-route-id="@aluno.id">Excluir</a>
                         </div>
                     </td>
                 </tr>
